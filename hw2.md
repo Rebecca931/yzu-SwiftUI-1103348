@@ -1,7 +1,8 @@
 <h1>hw2</h1>
 <table>
   <tr>
-      <td>
+    <td>
+      
 ```swift
 //在you點選自己要出的拳,同時opponent會隨機出拳,opponent出的拳會變大
 //上面比數會更新,如果平手就都沒有分數,按RESTART分數會歸零
@@ -179,6 +180,5 @@ struct ContentView: View {
     </video>
 
     </td>
-    
   </tr>
 </table>
