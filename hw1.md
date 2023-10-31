@@ -83,7 +83,7 @@
 
 <img width = "400"  src="https://raw.githubusercontent.com/Rebecca931/yzu-SwiftUI-1103348/main/IMG_0321.jpeg">
 
-      </td>
+</td>
    </tr>
 </table>
 
