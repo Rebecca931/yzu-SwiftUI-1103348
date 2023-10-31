@@ -53,7 +53,6 @@ struct ContentView: View {
                 Rectangle()
                     .fill(Color(red: 138/255, green: 90/255, blue: 28/255))  
                     .frame(width: 2500, height: 10)
-//                    .position(x: 0, y: 0)
                 HStack{
                     Image("ink")
                         .resizable()
@@ -75,7 +74,6 @@ struct ContentView: View {
                 Rectangle()
                     .fill(Color(red: 138/255, green: 90/255, blue: 28/255))  
                     .frame(width: 2500, height: 10)
-//                    .position(x: 0, y: 0)
                 HStack{
                     VStack{
                         HStack{//使用多個HStack和VStzck把他們放進去
@@ -110,7 +108,6 @@ struct ContentView: View {
                                 .resizable()
                                 .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
                                 .frame(width: 160, height: 160, alignment: .bottom)
-                            //                            .position(x: 0, y: 10)
                         }
                         
                     }
