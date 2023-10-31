@@ -1,11 +1,7 @@
 <h1>hw2</h1>
 <table>
   <tr>
-    <td><video width = "400" src = "https://raw.githubusercontent.com/Rebecca931/yzu-SwiftUI-1103348/main/hw2_video.mp4">
-</video></td>
-    
-    <td>
-      
+      <td>
 ```swift
 //在you點選自己要出的拳,同時opponent會隨機出拳,opponent出的拳會變大
 //上面比數會更新,如果平手就都沒有分數,按RESTART分數會歸零
@@ -179,7 +175,8 @@ struct ContentView: View {
 
 
 ```
-
+    <video width = "400" src = "https://raw.githubusercontent.com/Rebecca931/yzu-SwiftUI-    1103348/main/hw2_video.mp4">
+    </video>
 
     </td>
     
