@@ -1,7 +1,5 @@
 <h1>hw1</h1>
-<table>
-  <tr>
-    <td>
+
       
 ```swift
     //我以懸賞單的形式，製作一頁式個人檔案
@@ -82,6 +80,4 @@
 ```
 
 <img width = "400"  src="https://raw.githubusercontent.com/Rebecca931/yzu-SwiftUI-1103348/main/IMG_0321.jpeg">
-    </td>
-  </tr>
-</table>
+
