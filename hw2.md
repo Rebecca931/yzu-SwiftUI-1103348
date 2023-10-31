@@ -176,7 +176,7 @@ struct ContentView: View {
 
 
 ```
-<video width = "400" src = "https://raw.githubusercontent.com/Rebecca931/yzu-SwiftUI-    1103348/main/hw2_video.mp4">
+<video width = "400" src = "https://raw.githubusercontent.com/Rebecca931/yzu-SwiftUI-1103348/main/hw2_video.mp4">
 </video>
     </td>
   </tr>
