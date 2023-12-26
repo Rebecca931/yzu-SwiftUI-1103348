@@ -107,6 +107,8 @@ struct WelcomeView: View {
 }
 
 ```
+</td>
+
 <td>
 
 ```swift
@@ -223,5 +225,153 @@ struct DisneyDetialView: View {
 ```
   
 </td>  
+
+<td>
+
+```swift
+import SwiftUI
+//用ScrollView來呈現動漫類的片單
+
+struct Course: Identifiable{
+    var id = UUID()
+    var image:String
+    var courseNameUS:String //故事簡介
+    var courseNameTW:String //中文片名
+    var courseHours:String //影片類型
+    var predict:String //預告片
+}
+
+var courses = [
+    Course(image: "king", courseNameUS: "「國王排名」是以麾下有名騎士的數量、國民人口、城鎮發展，以及國王本人是否像勇者一樣強大，綜合以上條件來評價各國國王的排行榜。「你想要成為全世界最棒的國王?」伯斯王國的大王子波吉，天生就聽不見、話也說不 好、身體孱弱得舉不起劍，即使如此，他仍然想完成與母親的約定。這樣的堅強與執著也感動了影子一族的卡克， 他決定支持波吉，並成為波吉第一個朋友!但波吉隔天卻怎麼找也找不到卡克。", courseNameTW: "國王排名", courseHours: "類型： 奇幻、冒險、勵志", predict: "https://www.youtube.com/watch?v=aqIJUjTzPbo"),
+    Course(image: "spy", courseNameUS: "敘述一名身分為間諜的男性，和另一位實際工作是殺手的女性，以及一個能讀心的超能力者女孩，三人互相隱瞞真實身分所組成的虛假家庭間的家庭喜劇。", courseNameTW: "間諜家家酒", courseHours: "類型： 諜報動作、家庭喜劇", predict: "https://www.youtube.com/watch?v=l1uINfUshjc"),
+    Course(image: "war", courseNameUS: "擁有超人般身體能力的男子高中生虎杖悠仁的故事。\n因為某種理由，想要每天17點之前回家的虎杖悠仁來到了不強制出席的靈異現象研究會，享受着悠閒的活動。這樣的某一天，來學校尋找被封印的詛咒之物的青年伏黑惠出現於虎杖的面前。", courseNameTW: "咒術迴戰", courseHours: "類型：  少年漫畫、黑暗奇幻、校園、戰鬥", predict: "https://www.youtube.com/watch?v=QH--l_kJ2lE"),
+    Course(image: "kid", courseNameUS: "在演藝圈（這個世界）裏，謊言就是武器。\n在小城市工作的婦產科醫生吾郎，每天都過着與演藝圈無緣的生活。\n另一方面，他“推”的偶像“B小町”的愛開始登上明星之列。如此這般的兩人實現了“最糟糕”的相遇，從此命運的齒輪開始轉動…… ", courseNameTW: "我推的孩子", courseHours: "類型： 懸疑、偶像、戀愛", predict: "https://www.youtube.com/watch?v=ieGJ0CnGkLI"),
+    Course(image: "shadow", courseNameUS: "在一個遙遠的地方，居住著一群假裝自己是貴族的人，因為他們沒有臉，必須仰賴被稱為臉的「活人偶」來互相交流，故事描述被稱為艾蜜莉可的臉與她的主人凱特在影宅中的奇妙生活，隨著她們的成長，影宅的神秘與黑暗也逐漸展現出來。", courseNameTW: "影宅", courseHours: "類型：  哥德式、神秘、超自然", predict: "https://www.youtube.com/watch?v=1QPhoqCzU_4"),
+]
+
+struct AnimeListView: View {
+    @State var showDetialView = false
+    @State var selectedAnime: Course?
+    var body: some View {
+        VStack{
+            Text("Anime")
+                .padding(.top, 20)
+                .foregroundStyle(.secondary)
+                .padding(.bottom, 0)
+            Text("動漫類")
+                .font(.system(size: 40, weight: .bold, design: .rounded))
+                .padding(.all, 5)
+            ScrollView(.horizontal){
+                HStack{
+                    ForEach(courses){CourseItem in
+                        CardsView(image: CourseItem.image , courseNameUS: CourseItem.courseNameUS, courseNameTW: CourseItem.courseNameTW, courseHours: CourseItem.courseHours)
+                            .frame(width: 300) 
+                            .onTapGesture {
+                                self.showDetialView = true
+                                self.selectedAnime = CourseItem
+                            }
+                    }
+                    .sheet(item: self.$selectedAnime, content: {CourseItem in
+                        AnimeDetialView(thisAnime: CourseItem)
+                    })
+                }
+            }
+        }
+    }
+}
+
+struct CardsView: View{
+    var image:String
+    var courseNameUS: String
+    var courseNameTW: String
+    var courseHours: String
+    var body: some View{
+        VStack{
+            Image(image)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+            VStack(alignment: .leading, content: {
+                Text(courseNameTW)
+                    .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                    .foregroundStyle(.primary)
+                    .lineLimit(3)
+                Text(courseHours)
+                    .font(.caption)
+                    .foregroundStyle(Color(red: 0/255, green: 137/255, blue: 167/255))
+            })
+            .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, idealWidth: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
+            .padding(.horizontal, 10)
+            .padding(.bottom, 10)
+        }
+        .background(Color(red: 215/255, green: 240/255, blue: 187/255))
+        .clipShape(.rect(cornerRadius: 20))
+        .overlay(
+            RoundedRectangle(cornerRadius: 20)
+                .stroke(Color.gray, lineWidth: 2)
+        )
+        .padding(.all, 10)
+        
+    }
+}
+
+struct AnimeDetialView: View {
+    @Environment(\.presentationMode)
+    var presentationMode
+    var thisAnime: Course
+    var body: some View {
+        ScrollView{
+            VStack{
+                Image(thisAnime.image)
+                    .resizable()
+                    .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
+                    .clipped()
+                Text(thisAnime.courseNameTW)
+                    .font(.system(.title, design: .rounded))
+                    .fontWeight(.black)
+                Spacer()
+                Text(thisAnime.courseHours)
+                    .font(.caption)
+                Spacer()
+                Text(thisAnime.courseNameUS)
+                    .padding(.all, 25)
+                    .background(Color(red: 215/255, green: 240/255, blue: 187/255))
+                    .cornerRadius(30.0)
+                    .opacity(/*@START_MENU_TOKEN@*/0.8/*@END_MENU_TOKEN@*/)
+                    .frame(minWidth: 0, maxWidth: 350, minHeight: 0, maxHeight: .infinity)
+                Spacer()
+                //使用Link的方式, 將youtube預告片的網址放進去
+                Link("預告", destination: URL(string: thisAnime.predict)!)
+                    .padding(.all,10)
+                    .frame(width: 110, height: 45, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    .background(LinearGradient(gradient: Gradient(colors: [Color(red: 255/255, green: 195/255, blue: 0/255), Color(red: 255/255, green: 87/255, blue: 51/255)]), startPoint: .leading, endPoint: .trailing))
+                    .foregroundColor(.white)
+                    .font(.system(size: 30, design: .serif))
+                    .cornerRadius(20)
+            }
+        }
+        .overlay(
+            HStack{
+                Spacer()
+                VStack{
+                    Button(action:{
+                        self.presentationMode.wrappedValue.dismiss()
+                    },label:{
+                        Image(systemName: "chevron.down.circle.fill")
+                            .font(.largeTitle)
+                            .foregroundColor(.white)
+                    })
+                    .padding(.trailing, 20) //後面留空多少空間
+                    .padding(.top, 30)
+                    Spacer()
+                }
+            }
+        )
+    }
+}
+
+
+```  
+</td>
+
   </tr>
 </table>
