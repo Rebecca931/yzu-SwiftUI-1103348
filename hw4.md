@@ -966,6 +966,6 @@ struct typeDetialView: View {
   </tr>
 
   <tr>
-    <img width = "400" src ="https://raw.githubusercontent.com/Rebecca931/yzu-SwiftUI-1103348/main/hw2_GIF.gif">
+    <img width = "400" src ="https://raw.githubusercontent.com/Rebecca931/yzu-SwiftUI-1103348/main/RPReplay_Final1703596546.gif">
   </tr>
 </table>
