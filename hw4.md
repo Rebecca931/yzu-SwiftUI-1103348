@@ -107,6 +107,5 @@ struct WelcomeView: View {
 }
 
 ```      
-    </td>
   </tr>
 </table>
