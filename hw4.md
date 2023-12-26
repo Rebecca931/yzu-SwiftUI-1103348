@@ -73,6 +73,7 @@ struct ContentView: View {
     }
 }
 ```
+<img width = "400" src ="https://raw.githubusercontent.com/Rebecca931/yzu-SwiftUI-1103348/main/hw2_GIF.gif">
    </td>
     
    <td>
@@ -105,6 +106,7 @@ struct WelcomeView: View {
 }
 
 ```
+<img width = "400" src ="https://raw.githubusercontent.com/Rebecca931/yzu-SwiftUI-1103348/main/hw2_GIF.gif">
    </td>
 
    <td>
@@ -221,7 +223,7 @@ struct DisneyDetialView: View {
 }
 
 ```
-  
+  <img width = "400" src ="https://raw.githubusercontent.com/Rebecca931/yzu-SwiftUI-1103348/main/hw2_GIF.gif">
    </td>  
 
    <td>
@@ -290,7 +292,7 @@ struct CardsView: View{
                 .aspectRatio(contentMode: .fit)
             VStack(alignment: .leading, content: {
                 Text(courseNameTW)
-                    .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                    .font(.title)
                     .foregroundStyle(.primary)
                     .lineLimit(3)
                 Text(courseHours)
@@ -334,13 +336,13 @@ struct AnimeDetialView: View {
                     .padding(.all, 25)
                     .background(Color(red: 215/255, green: 240/255, blue: 187/255))
                     .cornerRadius(30.0)
-                    .opacity(/*@START_MENU_TOKEN@*/0.8/*@END_MENU_TOKEN@*/)
+                    .opacity(0.8)
                     .frame(minWidth: 0, maxWidth: 350, minHeight: 0, maxHeight: .infinity)
                 Spacer()
                 //使用Link的方式, 將youtube預告片的網址放進去
                 Link("預告", destination: URL(string: thisAnime.predict)!)
                     .padding(.all,10)
-                    .frame(width: 110, height: 45, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    .frame(width: 110, height: 45, alignment: .center)
                     .background(LinearGradient(gradient: Gradient(colors: [Color(red: 255/255, green: 195/255, blue: 0/255), Color(red: 255/255, green: 87/255, blue: 51/255)]), startPoint: .leading, endPoint: .trailing))
                     .foregroundColor(.white)
                     .font(.system(size: 30, design: .serif))
@@ -368,7 +370,8 @@ struct AnimeDetialView: View {
 }
 
 
-```  
+```
+<img width = "400" src ="https://raw.githubusercontent.com/Rebecca931/yzu-SwiftUI-1103348/main/hw2_GIF.gif">
    </td>
 
    <td>
@@ -468,7 +471,7 @@ struct subCardView: View{
             Image(image)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, idealWidth: 100, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
+                .frame(minWidth: 0, idealWidth: 100, maxWidth: .infinity, alignment: .leading)
         }
         .background(Color(red: 255/255, green: 204/255, blue: 153/255))
         .clipShape(.rect(cornerRadius: 20))
@@ -489,7 +492,7 @@ struct TaiwanDetialView: View {
             VStack{
                 Image(thisAnime.image)
                     .resizable()
-                    .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
+                    .aspectRatio(contentMode: .fill)
                     .clipped()
                 Text(thisAnime.filmNameTW)
                     .font(.system(.title, design: .rounded))
@@ -501,13 +504,13 @@ struct TaiwanDetialView: View {
                     .padding(.all, 25)
                     .background(Color(red: 254/255, green: 223/255, blue: 225/255))
                     .cornerRadius(30.0)
-                    .opacity(/*@START_MENU_TOKEN@*/0.8/*@END_MENU_TOKEN@*/)
+                    .opacity(0.8)
                     .frame(minWidth: 0, maxWidth: 350, minHeight: 0, maxHeight: .infinity)
                 Spacer()
                 //使用Link的方式, 將youtube預告片的網址放進去
                 Link("預告", destination: URL(string: thisAnime.filmPredict)!)
                     .padding(.all,10)
-                    .frame(width: 110, height: 45, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    .frame(width: 110, height: 45, alignment: .center)
                     .background(LinearGradient(gradient: Gradient(colors: [Color(red: 255/255, green: 195/255, blue: 0/255), Color(red: 255/255, green: 87/255, blue: 51/255)]), startPoint: .leading, endPoint: .trailing))
                     .foregroundColor(.white)
                     .font(.system(size: 30, design: .serif))
@@ -534,7 +537,7 @@ struct TaiwanDetialView: View {
     }
 }
 ```
-  
+  <img width = "400" src ="https://raw.githubusercontent.com/Rebecca931/yzu-SwiftUI-1103348/main/hw2_GIF.gif">
    </td>
 
    <td>
@@ -587,7 +590,7 @@ struct CardView: View {
                     .padding(.bottom, 20)
             }
            
-            .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, idealWidth: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, maxWidth: 300, alignment: .leading)
+            .frame(minWidth: 0, idealWidth: 100, maxWidth: 300, alignment: .leading)
             .background(Color(red: 231/255, green: 209/255, blue: 224/255))
             .clipShape(.rect(cornerRadius: 20))
             .overlay(
@@ -605,6 +608,7 @@ struct CardView: View {
 
 
 ```
+<img width = "400" src ="https://raw.githubusercontent.com/Rebecca931/yzu-SwiftUI-1103348/main/hw2_GIF.gif">
    </td>
 
    <td>
@@ -665,7 +669,7 @@ struct SettingView: View {
 }
 
 ```
-  
+  <img width = "400" src ="https://raw.githubusercontent.com/Rebecca931/yzu-SwiftUI-1103348/main/hw2_GIF.gif">
    </td>
 
    <td>
@@ -962,10 +966,7 @@ struct typeDetialView: View {
 
 
 ```
+<img width = "400" src ="https://raw.githubusercontent.com/Rebecca931/yzu-SwiftUI-1103348/main/hw2_GIF.gif">
    </td>
-  </tr>
-
-  <tr>
-    <img width = "400" src ="https://raw.githubusercontent.com/Rebecca931/yzu-SwiftUI-1103348/main/RPReplay_Final1703596546.gif">
   </tr>
 </table>
