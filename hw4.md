@@ -73,7 +73,7 @@ struct ContentView: View {
     }
 }
 ```
-<img width = "400" src ="https://raw.githubusercontent.com/Rebecca931/yzu-SwiftUI-1103348/main/hw2_GIF.gif">
+<img width = "400" src ="https://raw.githubusercontent.com/Rebecca931/yzu-SwiftUI-1103348/main/welcome.gif">
    </td>
     
    <td>
@@ -106,7 +106,6 @@ struct WelcomeView: View {
 }
 
 ```
-<img width = "400" src ="https://raw.githubusercontent.com/Rebecca931/yzu-SwiftUI-1103348/main/hw2_GIF.gif">
    </td>
 
    <td>
@@ -223,7 +222,7 @@ struct DisneyDetialView: View {
 }
 
 ```
-  <img width = "400" src ="https://raw.githubusercontent.com/Rebecca931/yzu-SwiftUI-1103348/main/hw2_GIF.gif">
+  <img width = "400" src ="https://raw.githubusercontent.com/Rebecca931/yzu-SwiftUI-1103348/main/disney.gif">
    </td>  
 
    <td>
@@ -371,7 +370,7 @@ struct AnimeDetialView: View {
 
 
 ```
-<img width = "400" src ="https://raw.githubusercontent.com/Rebecca931/yzu-SwiftUI-1103348/main/hw2_GIF.gif">
+<img width = "400" src ="https://raw.githubusercontent.com/Rebecca931/yzu-SwiftUI-1103348/main/anime.gif">
    </td>
 
    <td>
@@ -537,7 +536,7 @@ struct TaiwanDetialView: View {
     }
 }
 ```
-  <img width = "400" src ="https://raw.githubusercontent.com/Rebecca931/yzu-SwiftUI-1103348/main/hw2_GIF.gif">
+  <img width = "400" src ="https://raw.githubusercontent.com/Rebecca931/yzu-SwiftUI-1103348/main/taiwan.gif">
    </td>
 
    <td>
@@ -608,7 +607,7 @@ struct CardView: View {
 
 
 ```
-<img width = "400" src ="https://raw.githubusercontent.com/Rebecca931/yzu-SwiftUI-1103348/main/hw2_GIF.gif">
+<img width = "400" src ="https://raw.githubusercontent.com/Rebecca931/yzu-SwiftUI-1103348/main/card.gif">
    </td>
 
    <td>
@@ -669,7 +668,7 @@ struct SettingView: View {
 }
 
 ```
-  <img width = "400" src ="https://raw.githubusercontent.com/Rebecca931/yzu-SwiftUI-1103348/main/hw2_GIF.gif">
+  <img width = "400" src ="https://raw.githubusercontent.com/Rebecca931/yzu-SwiftUI-1103348/main/settings.gif">
    </td>
 
    <td>
@@ -966,7 +965,7 @@ struct typeDetialView: View {
 
 
 ```
-<img width = "400" src ="https://raw.githubusercontent.com/Rebecca931/yzu-SwiftUI-1103348/main/hw2_GIF.gif">
+<img width = "400" src ="https://raw.githubusercontent.com/Rebecca931/yzu-SwiftUI-1103348/main/progress.gif">
    </td>
   </tr>
 </table>
