@@ -1,9 +1,6 @@
 <h1>hw4</h1>
 <table>
   <tr>
-     <tr>
-    <img width = "400" src ="https://raw.githubusercontent.com/Rebecca931/yzu-SwiftUI-1103348/main/hw2_GIF.gif">
-  </tr>
     <td>
       
 ```swift
@@ -75,8 +72,6 @@ struct ContentView: View {
             .background(Color(red: 231/255, green: 209/255, blue: 224/255))//APP背景顏色
     }
 }
-
-
 ```
    </td>
     
@@ -91,7 +86,7 @@ struct WelcomeView: View {
         VStack {
             Image("film")
                 .resizable()
-                .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
+                .aspectRatio(contentMode: .fill)
                .frame(width: 340, height: 340, alignment: .center)
             Text("推薦給你💁🏻‍♀️\n看都看不完的好片")
                 .font(.system(size: 40, weight: .bold, design: .rounded))
@@ -99,10 +94,10 @@ struct WelcomeView: View {
                 .foregroundStyle(Color(red: 255/255, green: 145/255, blue: 25/255))
                 .fontWeight(.heavy)
                 .lineSpacing(10)
-                .frame(width: 350, height: 150, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                .frame(width: 350, height: 150, alignment: .center)
                 .background(Color(red: 215/255, green: 240/255, blue: 187/255))
                 .cornerRadius(30.0)
-                .opacity(/*@START_MENU_TOKEN@*/0.8/*@END_MENU_TOKEN@*/)
+                .opacity(0.8)
                 .multilineTextAlignment(.center)
             
         }.padding(.top, 20)
@@ -857,7 +852,7 @@ struct typeDetialView: View {
                                 .padding(.all, 15)
                                 .background(Color(red: 215/255, green: 214/255, blue: 241/255))
                                 .cornerRadius(30.0)
-                                .opacity(/*@START_MENU_TOKEN@*/0.8/*@END_MENU_TOKEN@*/)
+                                .opacity(0.8)
                                 .frame(minWidth: 0, maxWidth: 350, minHeight: 0, maxHeight: .infinity)
                             Spacer()
                             Spacer()
@@ -883,7 +878,7 @@ struct typeDetialView: View {
                                 .padding(.all, 15)
                                 .background(Color(red: 215/255, green: 214/255, blue: 241/255))
                                 .cornerRadius(30.0)
-                                .opacity(/*@START_MENU_TOKEN@*/0.8/*@END_MENU_TOKEN@*/)
+                                .opacity(0.8)
                                 .frame(minWidth: 0, maxWidth: 350, minHeight: 0, maxHeight: .infinity)
                             Spacer()
                             Spacer()
@@ -937,7 +932,7 @@ struct typeDetialView: View {
                                 .padding(.all, 15)
                                 .background(Color(red: 215/255, green: 214/255, blue: 241/255))
                                 .cornerRadius(30.0)
-                                .opacity(/*@START_MENU_TOKEN@*/0.8/*@END_MENU_TOKEN@*/)
+                                .opacity(0.8)
                                 .frame(minWidth: 0, maxWidth: 350, minHeight: 0, maxHeight: .infinity)
                             Spacer()
                             Spacer()
@@ -968,5 +963,9 @@ struct typeDetialView: View {
 
 ```
    </td>
+  </tr>
+
+  <tr>
+    <img width = "400" src ="https://raw.githubusercontent.com/Rebecca931/yzu-SwiftUI-1103348/main/hw2_GIF.gif">
   </tr>
 </table>
