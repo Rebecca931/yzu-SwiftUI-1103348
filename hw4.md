@@ -75,9 +75,9 @@ struct ContentView: View {
 
 
 ```
-</td>
+   </td>
     
-<td>
+   <td>
       
 ```swift
 import SwiftUI
@@ -107,9 +107,9 @@ struct WelcomeView: View {
 }
 
 ```
-</td>
+   </td>
 
-<td>
+   <td>
 
 ```swift
 import SwiftUI
@@ -195,7 +195,7 @@ struct DisneyDetialView: View {
                 //使用Link的方式, 將youtube預告片的網址放進去
                 Link("預告", destination: URL(string: thisDisney.predict)!)
                     .padding(.all,10)
-                    .frame(width: 110, height: 45, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    .frame(width: 110, height: 45, alignment: .center)
                     .background(LinearGradient(gradient: Gradient(colors: [Color(red: 255/255, green: 195/255, blue: 0/255), Color(red: 255/255, green: 87/255, blue: 51/255)]), startPoint: .leading, endPoint: .trailing))
                     .foregroundColor(.white)
                     .font(.system(size: 30, design: .serif))
@@ -224,9 +224,9 @@ struct DisneyDetialView: View {
 
 ```
   
-</td>  
+   </td>  
 
-<td>
+   <td>
 
 ```swift
 import SwiftUI
@@ -299,7 +299,7 @@ struct CardsView: View{
                     .font(.caption)
                     .foregroundStyle(Color(red: 0/255, green: 137/255, blue: 167/255))
             })
-            .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, idealWidth: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
+            .frame(minWidth: 0, idealWidth: 100, maxWidth: .infinity, alignment: .leading)
             .padding(.horizontal, 10)
             .padding(.bottom, 10)
         }
@@ -323,7 +323,7 @@ struct AnimeDetialView: View {
             VStack{
                 Image(thisAnime.image)
                     .resizable()
-                    .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
+                    .aspectRatio(contentMode: .fill)
                     .clipped()
                 Text(thisAnime.courseNameTW)
                     .font(.system(.title, design: .rounded))
@@ -371,9 +371,9 @@ struct AnimeDetialView: View {
 
 
 ```  
-</td>
+   </td>
 
-<td>
+   <td>
 
 ```swift
 import SwiftUI
@@ -537,9 +537,9 @@ struct TaiwanDetialView: View {
 }
 ```
   
-</td>
+   </td>
 
-<td>
+   <td>
 
 ```swift
 import SwiftUI
@@ -607,9 +607,9 @@ struct CardView: View {
 
 
 ```
-</td>
+   </td>
 
-<td>
+   <td>
 
 ```swift
 import SwiftUI
@@ -668,9 +668,9 @@ struct SettingView: View {
 
 ```
   
-</td>
+   </td>
 
-<td>
+   <td>
 
 ```swift
 import SwiftUI
@@ -964,7 +964,9 @@ struct typeDetialView: View {
 
 
 ```
-</td>
-
+   </td>
+  </tr>
+  <tr>
+    <img width = "400" src ="https://raw.githubusercontent.com/Rebecca931/yzu-SwiftUI-1103348/main/hw2_GIF.gif">
   </tr>
 </table>
