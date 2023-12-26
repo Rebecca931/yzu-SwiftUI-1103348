@@ -75,9 +75,9 @@ struct ContentView: View {
 
 
 ```
-
-    </td>
-    <td>
+</td>
+    
+<td>
       
 ```swift
 import SwiftUI
