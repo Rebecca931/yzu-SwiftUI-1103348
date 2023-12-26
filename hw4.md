@@ -373,5 +373,598 @@ struct AnimeDetialView: View {
 ```  
 </td>
 
+<td>
+
+```swift
+import SwiftUI
+//用HStack和VStack來呈現台灣影視作品
+
+struct Film: Identifiable{
+    var id = UUID()
+    var image:String
+    var filmNameUS:String //故事簡介
+    var filmNameTW:String //中文片名
+    var filmHours:String //影片類型
+    var filmPredict:String //預告片
+}
+
+//我把片單兩個兩個存放在三個陣列中，用VStack的方式呈現三組片單
+var films = [ //第一組片單
+    Film(image: "ghost", filmNameUS: "劇情描述直男警察許光漢，辦案蒐證誤撿地上紅包，被迫成為同志冤鬼林柏宏的冥婚「老公」；人鬼都能冥婚，直男與同志當然也能湊作伙，攜手緝毒追兇，一場荒謬絕倫、笑中帶淚的旅程就此展開。", filmNameTW: "關於我和鬼變成家人的那件事", filmHours: "類型： 奇幻、靈異、LGBT、喜劇", filmPredict: "https://www.youtube.com/watch?v=lQAQpkY4o6U"),
+    Film(image: "weird", filmNameUS: "在愛情的世界裡，我們是彼此的怪胎。\n陳柏青是一名嚴重神經性強迫症患者，有非常嚴重的潔癖，非不得已要出門時都是全副武裝；穿防塵衣、戴手套、戴口罩，還會不停的洗手，所以他幾乎沒辦法正常社交生活。 在一般人眼中，柏青就是個異於常人的怪胎。", filmNameTW: "怪胎", filmHours: "類型： 劇情、愛情、浪漫", filmPredict: "https://www.youtube.com/watch?v=byDWAoKEFZ8"),
+]
+
+var films1 = [ //第二組片單
+    Film(image: "sun", filmNameUS: "講述在駕訓班擔任教練的阿文和琴姐育有兩個兒子，某日，叛逆的小兒子阿和跟好友菜頭進了少年輔育院，而在被害者家屬不斷找阿文求取鉅額賠償之下，阿文受不了總是惹麻煩的阿和，決定將所有希望都託付在大兒子阿豪身上，卻不知道個性善良的資優生心中也藏著不為人知的一面。", filmNameTW: "陽光普照", filmHours: "類型： 犯罪、懸疑、青春", filmPredict: "https://www.youtube.com/watch?v=0bQXpreXRyc"),
+    Film(image: "law", filmNameUS: "講述貪財又刻薄、為打贏官司完全沒底線的精算律師─劉浪（陳柏霖 飾），與堅持追求正義、奮發圖強的菜鳥律師─林小顏（郭雪芙 飾），兩人意外成為搭檔，在過程中相互切磋、追尋正義、並碰撞出笑料與火花的喜劇故事。", filmNameTW: "正義的算法", filmHours: "類型： 喜劇、感人、幽默", filmPredict: "https://www.youtube.com/watch?v=1D4xRM492pU"),
+]
+
+var films2 = [ //第三組片單
+    Film(image: "kill", filmNameUS: "聚焦於1988年台北林森北路條通的一間熱門日式酒店「光」，一群酒店女子在這裡經歷了嫉妒、心碎、友誼與愛情種種百轉千迴的歡場人生。\n 特別是六大金釵的生活，表面五光十色、紙醉金迷，背地裡暗潮洶湧，並因一樁紅鞋無名屍案而被攤在陽光下。", filmNameTW: "華燈初上", filmHours: "類型： 懸疑、寫實、愛情", filmPredict: "https://www.youtube.com/watch?v=a5X_BJFKONU"),
+    Film(image: "copy", filmNameUS: "改編自日本推理女王宮部美幸同名暢銷小說，故事描述90年代，一名擅長偵辦兇殺刑案的檢察官郭曉其（吳慷仁飾）面對當時第一起的連續殺人命案，以他心中衡量正義的那把尺對抗連續殺人案兇手，面對辦案過程中兇手不斷的挑釁與隨之擴張的惡，讓曉其決心不惜染髒自己的手，賭上人生也要拖出兇手的犯案證據。", filmNameTW: "模仿犯", filmHours: "類型： 懸疑、犯罪、推理", filmPredict: "https://www.youtube.com/watch?v=Sk-XhCaz5M0"),
+]
+
+struct TaiwanListView: View {
+    @State var showDetialView = false
+    @State var selectedTaiwan: Film?
+    var body: some View {
+        VStack{
+            Text("Taianese films")
+                .padding(.top, 20)
+                .foregroundStyle(.secondary)
+                .padding(.bottom, 0)
+            Text("台灣影視作品")
+                .font(.system(size: 40, weight: .bold, design: .rounded))
+                .padding(.all, 5)
+            
+            HStack{
+                ForEach(films){CourseItem in
+                    subCardView(image: CourseItem.image , filmNameUS: CourseItem.filmNameUS, filmNameTW: CourseItem.filmNameTW, filmHours: CourseItem.filmHours)
+                        .frame(width: 190) 
+                        .onTapGesture {
+                            self.showDetialView = true
+                            self.selectedTaiwan = CourseItem
+                        }
+                }
+                .sheet(item: self.$selectedTaiwan, content: {CourseItem in
+                    TaiwanDetialView(thisAnime: CourseItem)
+                })
+            }
+            HStack{
+                ForEach(films1){CourseItem in
+                    subCardView(image: CourseItem.image , filmNameUS: CourseItem.filmNameUS, filmNameTW: CourseItem.filmNameTW, filmHours: CourseItem.filmHours)
+                        .frame(width: 190) 
+                        .onTapGesture {
+                            self.showDetialView = true
+                            self.selectedTaiwan = CourseItem
+                        }
+                }
+                .sheet(item: self.$selectedTaiwan, content: {CourseItem in
+                    TaiwanDetialView(thisAnime: CourseItem)
+                })
+            }
+            HStack{
+                ForEach(films2){CourseItem in
+                    subCardView(image: CourseItem.image , filmNameUS: CourseItem.filmNameUS, filmNameTW: CourseItem.filmNameTW, filmHours: CourseItem.filmHours)
+                        .frame(width: 190) 
+                        .onTapGesture {
+                            self.showDetialView = true
+                            self.selectedTaiwan = CourseItem
+                        }
+                }
+                .sheet(item: self.$selectedTaiwan, content: {CourseItem in
+                    TaiwanDetialView(thisAnime: CourseItem)
+                })
+            }
+        }
+    }
+}
+
+struct subCardView: View{
+    var image:String
+    var filmNameUS: String
+    var filmNameTW: String
+    var filmHours: String
+    var body: some View{
+        VStack{
+            Image(image)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, idealWidth: 100, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
+        }
+        .background(Color(red: 255/255, green: 204/255, blue: 153/255))
+        .clipShape(.rect(cornerRadius: 20))
+        .overlay(
+            RoundedRectangle(cornerRadius: 20)
+                .stroke(Color.gray, lineWidth: 2)
+        )
+        .padding(.all, 10)
+    }
+}
+
+struct TaiwanDetialView: View {
+    @Environment(\.presentationMode)
+    var presentationMode
+    var thisAnime: Film
+    var body: some View {
+        ScrollView{
+            VStack{
+                Image(thisAnime.image)
+                    .resizable()
+                    .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
+                    .clipped()
+                Text(thisAnime.filmNameTW)
+                    .font(.system(.title, design: .rounded))
+                    .fontWeight(.black)
+                Spacer()
+                Text(thisAnime.filmHours)
+                    .font(.caption)
+                Text(thisAnime.filmNameUS)
+                    .padding(.all, 25)
+                    .background(Color(red: 254/255, green: 223/255, blue: 225/255))
+                    .cornerRadius(30.0)
+                    .opacity(/*@START_MENU_TOKEN@*/0.8/*@END_MENU_TOKEN@*/)
+                    .frame(minWidth: 0, maxWidth: 350, minHeight: 0, maxHeight: .infinity)
+                Spacer()
+                //使用Link的方式, 將youtube預告片的網址放進去
+                Link("預告", destination: URL(string: thisAnime.filmPredict)!)
+                    .padding(.all,10)
+                    .frame(width: 110, height: 45, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    .background(LinearGradient(gradient: Gradient(colors: [Color(red: 255/255, green: 195/255, blue: 0/255), Color(red: 255/255, green: 87/255, blue: 51/255)]), startPoint: .leading, endPoint: .trailing))
+                    .foregroundColor(.white)
+                    .font(.system(size: 30, design: .serif))
+                    .cornerRadius(20)
+            }
+        }
+        .overlay(
+            HStack{
+                Spacer()
+                VStack{
+                    Button(action:{
+                        self.presentationMode.wrappedValue.dismiss()
+                    },label:{
+                        Image(systemName: "chevron.down.circle.fill")
+                            .font(.largeTitle)
+                            .foregroundColor(.white)
+                    })
+                    .padding(.trailing, 20) //後面留空多少空間
+                    .padding(.top, 30)
+                    Spacer()
+                }
+            }
+        )
+    }
+}
+```
+  
+</td>
+
+<td>
+
+```swift
+import SwiftUI
+//使用者可以透過點擊來隨機產生要看哪一部作品
+
+struct TermAndDescription: Identifiable{ //存放片單照片和名稱
+    var id = UUID()
+    var image:String
+    var description:String
+}
+
+var myDictionary = [ //存放所有片單的陣列
+    TermAndDescription(image: "animal", description: "動物方城市"),
+    TermAndDescription(image: "brain", description: "腦筋急轉彎"),
+    TermAndDescription(image: "brave", description: "勇敢傳說"),
+    TermAndDescription(image: "coco", description: "可可夜總會"),
+    TermAndDescription(image: "copy", description: "模仿犯"),
+    TermAndDescription(image: "frozen", description: "冰雪奇緣"),
+    TermAndDescription(image: "ghost", description: "關於我和鬼變成家人的那件事"),
+    TermAndDescription(image: "kid", description: "我推的孩子"),
+    TermAndDescription(image: "kill", description: "華燈初上"),
+    TermAndDescription(image: "king", description: "國王排名"),
+    TermAndDescription(image: "law", description: "正義的算法"),
+    TermAndDescription(image: "shadow", description: "影宅"),
+    TermAndDescription(image: "spy", description: "間諜家家酒"),
+    TermAndDescription(image: "sun", description: "陽光普照"),
+    TermAndDescription(image: "war", description: "咒術迴戰"),
+    TermAndDescription(image: "weird", description: "怪胎"),
+    TermAndDescription(image: "sea", description: "海洋奇緣"),
+]
+
+struct CardView: View {
+    @State var currentCard = 0
+    var body: some View {
+        VStack {
+            Text("點擊查看今天要看什麼!!")
+                .padding(.all, 10)
+                .font(.system(size: 25, weight: .bold, design: .rounded))
+            VStack{
+                Image(myDictionary[currentCard].image)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                Text(myDictionary[currentCard].description)
+                    .font(.system(size: 20, weight: .bold))
+                    .foregroundColor(Color(red: 13/255, green: 86/255, blue: 97/255))
+                    .padding(.top, 5)
+                    .padding(.bottom, 20)
+            }
+           
+            .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, idealWidth: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, maxWidth: 300, alignment: .leading)
+            .background(Color(red: 231/255, green: 209/255, blue: 224/255))
+            .clipShape(.rect(cornerRadius: 20))
+            .overlay(
+                RoundedRectangle(cornerRadius: 20)
+                    .stroke(Color.gray, lineWidth: 2)
+            )
+            .onTapGesture(perform: { //點即時隨機產生id顯示圖片以及片名
+                let randomInt = Int.random(in:0...16)
+                self.currentCard = randomInt
+            })
+            
+        }.padding(.top, 20)
+    }
+}
+
+
+```
+</td>
+
+<td>
+
+```swift
+import SwiftUI
+//settings功能是用 @Appstprage 使用者可以輸入姓名，顯示在最上方
+//其餘暫無功能
+
+struct SettingView: View {
+    let displayFontType = [".default",".rounded",".monospaced",".serif"]
+    @State var displayFontSelected = 0
+    @State var IsDeepScheme = false;
+    @State var colorArray:Array = [255.0,255.0,255.0]
+    @State var stepperValue = 0
+    @State var sliderValue = 0.0
+    @State var date = Date()
+    @AppStorage("UserName") var UserName:String = ""
+    
+    var body: some View {
+        NavigationView{
+            Form(
+                content: {
+                    Section(content: {
+                        TextField("請輸入您的名字", text: $UserName)
+                    }, header: {
+                        Text("使用者名稱")
+                    })
+                    Section(header: Text("字型設定"), content: {
+                        Picker(selection: $displayFontSelected, label: Text("字型選擇")){
+                            ForEach(0..<displayFontType.count, id: \.self, content:{
+                                Text(self.displayFontType[$0])  
+                            })
+                        }
+                    })
+                    Section(header: Text("背景風格"), content: {
+                        Toggle(isOn: $IsDeepScheme, label: {
+                            Text("深色\(String(IsDeepScheme))")
+                        })
+                    })
+                    Section(header: Text("計數器"), content: {
+                        Stepper( onIncrement: {stepperValue+=1;}, onDecrement: {stepperValue-=1},
+                                 label: {
+                            Text("Stepper \(stepperValue)")
+                        })
+                    })
+                    Section(header: Text("滑桿\(sliderValue,specifier: "%.2f")"), content: {
+                        Slider(value: $sliderValue, in: 0...1)
+                    })
+                    Section(header: Text("日期"), content: {
+                        DatePicker("\(date.formatted(date: .numeric, time: .omitted))", selection: $date, displayedComponents: [.date])
+                    })
+                }
+            )
+            .navigationTitle("Settings 設定")
+        }
+    }
+}
+
+```
+  
+</td>
+
+<td>
+
+```swift
+import SwiftUI
+
+//使用Settings中的Stepper，使用者可以透過＋—來記錄自己的完成度，APP會用 @AppStorage來記錄使用者的次數，假如使用者點擊個類別時，整體完成度的數量也會跟著更新。
+
+//每個Row也點進去，點進去後會顯示各種類別的完成比例圖，如果想看整體的完成度，可以點整體完成度，裡面就會有全部以及個類別的完成比例圖。這個部分是用上課所學來發想的。
+
+//完成比例圖和Stepper都是使用 @Appstorage 來存的，所以就算關掉後，還是會有紀錄。
+
+struct type: Identifiable{ //影片種類
+    var id = UUID()
+    var image:String
+    var Name:String
+}
+
+var types = [ //片單類別陣列
+    type(image: "ghost", Name: "台灣影視作品"),
+    type(image: "coco", Name: "迪士尼電影"),
+    type(image: "king", Name: "動漫類"),
+    type(image: "film", Name: "整體完成度"),
+]
+
+struct progressView: View {
+    @State var showtypeDetialView = false
+    @State var selectedtype: type?
+    var body: some View {
+        NavigationView{
+            List(types){typeItem in
+                NavigationLink(
+                    destination: typeDetialView(thistype: typeItem), label:{
+                        BasicImageRow1(thistype : typeItem)
+                    }
+                )
+            }
+            .navigationTitle("片單完成度")
+        }
+    }
+}
+
+struct BasicImageRow1: View {
+    //完成比例圖的記錄
+    @AppStorage("All") var All:Double = 0.0
+    @AppStorage("TWprogress") var TWprogress:Double = 0.0
+    @AppStorage("Dprogress") var Dprogress:Double = 0.0
+    @AppStorage("Anprogress") var Anprogress:Double = 0.0
+    
+    //Stepper的記錄
+    @AppStorage("ScoreAll") var ScoreAll : Int = 0
+    @AppStorage("ScoreTW") var ScoreTW : Int = 0
+    @AppStorage("ScoreAS") var ScoreA : Int = 0
+    @AppStorage("ScoreDS") var ScoreD : Int = 0
+    
+    var thistype: type
+    
+    var body: some View {
+        HStack{
+            Image(thistype.image)
+                .resizable()
+                .frame(width: 40, height: 40)
+                .cornerRadius(5)
+            Text(thistype.Name)
+            Section(content: {
+                Stepper( onIncrement: {ScoreAll+=1;All += 0.05885;
+                    if(thistype.image == "ghost"){TWprogress+=0.16667;ScoreTW += 1}
+                    else if(thistype.image == "coco"){Dprogress+=0.16667;ScoreD += 1}
+                    else if(thistype.image == "king"){Anprogress+=0.2;ScoreA += 1}
+                    
+                }, onDecrement: {ScoreAll-=1;All -= 0.05885;
+                    if(thistype.image == "ghost"){TWprogress-=0.16667;ScoreTW -= 1}
+                    else if(thistype.image == "coco"){Dprogress-=0.16667;ScoreD -= 1}
+                    else if(thistype.image == "king"){Anprogress-=0.2;ScoreA -= 1}
+                },
+                     label: {
+                    if(thistype.image == "ghost"){Text("\(ScoreTW)"+"  部")}
+                    else if(thistype.image == "coco"){Text("\(ScoreD)"+"  部")}
+                    else if(thistype.image == "king"){Text("\(ScoreA)"+"  部")}
+                    else if(thistype.image == "film"){Text("\(ScoreAll)"+"  部")}
+                })
+            })
+            
+        }
+    }
+}
+
+struct typeDetialView: View {
+    @AppStorage("All") var All:Double = 0.0
+    @AppStorage("TWprogress") var TWprogress:Double = 0.0
+    @AppStorage("Dprogress") var Dprogress:Double = 0.0
+    @AppStorage("Anprogress") var Anprogress:Double = 0.0
+    
+    @Environment(\.presentationMode)
+    var presentationMode
+    var thistype: type
+    
+    var body: some View {
+        ScrollView{
+            VStack{
+                if(thistype.image == "ghost"){
+                    Text("台灣影視作品")
+                        .padding(.all, 20)
+                        .background(Color(red: 215/255, green: 214/255, blue: 241/255))
+                        .cornerRadius(30.0)
+                        .opacity(/*@START_MENU_TOKEN@*/0.8/*@END_MENU_TOKEN@*/)
+                        .frame(minWidth: 0, maxWidth: 350, minHeight: 0, maxHeight: .infinity)
+                    Spacer()
+                    Spacer()
+                    ZStack{
+                        Circle()
+                            .stroke(Color(.lightGray), lineWidth: 20)
+                            .frame(width: 250, height: 250, alignment: .center)
+                        Circle()
+                            .trim(from: 0.0, to: TWprogress)
+                            .stroke(Color(red: 160/255, green: 64/255, blue: 119/255), lineWidth: 20)
+                            .frame(width: 250, height: 250, alignment: .center)
+                            .rotationEffect(Angle(degrees: -90))
+                            .overlay(
+                                Text("\(Int(TWprogress*100))%")
+                                    .font(.system(size: 60))
+                                    .bold()
+                                    .foregroundColor(Color(red: 160/255, green: 64/255, blue: 119/255))
+                            )
+                    }
+                }
+                else if(thistype.image == "coco"){
+                    Text("迪士尼電影")
+                        .padding(.all, 20)
+                        .background(Color(red: 215/255, green: 214/255, blue: 241/255))
+                        .cornerRadius(30.0)
+                        .opacity(/*@START_MENU_TOKEN@*/0.8/*@END_MENU_TOKEN@*/)
+                        .frame(minWidth: 0, maxWidth: 350, minHeight: 0, maxHeight: .infinity)
+                    Spacer() 
+                    Spacer()
+                    ZStack{
+                        Circle()
+                            .stroke(Color(.lightGray), lineWidth: 20)
+                            .frame(width: 250, height: 250, alignment: .center)
+                        Circle()
+                            .trim(from: 0, to: Dprogress)
+                            .stroke(Color(red: 160/255, green: 64/255, blue: 119/255), lineWidth: 20)
+                            .frame(width: 250, height: 250, alignment: .center)
+                            .rotationEffect(Angle(degrees: -90))
+                            .overlay(
+                                Text("\(Int(Dprogress*100))%")
+                                    .font(.system(size: 60))
+                                    .bold()
+                                    .foregroundColor(Color(red: 160/255, green: 64/255, blue: 119/255))
+                            )
+                    }
+                }
+                else if(thistype.image == "king"){
+                    Text("動漫類")
+                        .padding(.all, 20)
+                        .background(Color(red: 215/255, green: 214/255, blue: 241/255))
+                        .cornerRadius(30.0)
+                        .opacity(/*@START_MENU_TOKEN@*/0.8/*@END_MENU_TOKEN@*/)
+                        .frame(minWidth: 0, maxWidth: 350, minHeight: 0, maxHeight: .infinity)
+                    Spacer()
+                    Spacer()
+                    ZStack{
+                        Circle()
+                            .stroke(Color(.lightGray), lineWidth: 20)
+                            .frame(width: 250, height: 250, alignment: .center)
+                        Circle()
+                            .trim(from: 0, to: Anprogress)
+                            .stroke(Color(red: 160/255, green: 64/255, blue: 119/255), lineWidth: 20)
+                            .frame(width: 250, height: 250, alignment: .center)
+                            .rotationEffect(Angle(degrees: -90))
+                            .overlay(
+                                Text("\(Int(Anprogress*100))%")
+                                    .font(.system(size: 60))
+                                    .bold()
+                                    .foregroundColor(Color(red: 160/255, green: 64/255, blue: 119/255))
+                            )
+                    }
+                }
+                else if(thistype.image == "film"){
+                    HStack{
+                        VStack{
+                            Text("整體完成度")
+                                .padding(.all, 15)
+                                .background(Color(red: 215/255, green: 214/255, blue: 241/255))
+                                .cornerRadius(30.0)
+                                .opacity(/*@START_MENU_TOKEN@*/0.8/*@END_MENU_TOKEN@*/)
+                                .frame(minWidth: 0, maxWidth: 350, minHeight: 0, maxHeight: .infinity)
+                            Spacer()
+                            Spacer()
+                            ZStack{
+                                Circle()
+                                    .stroke(Color(.lightGray), lineWidth: 15)
+                                    .frame(width: 130, height: 130, alignment: .center)
+                                Circle()
+                                    .trim(from: 0, to: All)
+                                    .stroke(Color(red: 160/255, green: 64/255, blue: 119/255), lineWidth: 15)
+                                    .frame(width: 130, height: 130, alignment: .center)
+                                    .rotationEffect(Angle(degrees: -90))
+                                    .overlay(
+                                        Text("\(Int(All*100))%")
+                                            .font(.system(size: 50))
+                                            .bold()
+                                            .foregroundColor(Color(red: 160/255, green: 64/255, blue: 119/255))
+                                    )
+                            }
+                        }
+                        VStack{
+                            Text("台灣影視作品")
+                                .padding(.all, 15)
+                                .background(Color(red: 215/255, green: 214/255, blue: 241/255))
+                                .cornerRadius(30.0)
+                                .opacity(/*@START_MENU_TOKEN@*/0.8/*@END_MENU_TOKEN@*/)
+                                .frame(minWidth: 0, maxWidth: 350, minHeight: 0, maxHeight: .infinity)
+                            Spacer()
+                            Spacer()
+                            ZStack{
+                                Circle()
+                                    .stroke(Color(.lightGray), lineWidth: 15)
+                                    .frame(width: 130, height: 130, alignment: .center)
+                                Circle()
+                                    .trim(from: 0, to: TWprogress)
+                                    .stroke(Color(red: 160/255, green: 64/255, blue: 119/255), lineWidth: 15)
+                                    .frame(width: 130, height: 130, alignment: .center)
+                                    .rotationEffect(Angle(degrees: -90))
+                                    .overlay(
+                                        Text("\(Int(TWprogress*100))%")
+                                            .font(.system(size: 50))
+                                            .bold()
+                                            .foregroundColor(Color(red: 160/255, green: 64/255, blue: 119/255))
+                                    )
+                            }
+                        }
+                    } 
+                    HStack{
+                        VStack{
+                            Text("迪士尼電影")
+                                .padding(.all, 15)
+                                .background(Color(red: 215/255, green: 214/255, blue: 241/255))
+                                .cornerRadius(30.0)
+                                .opacity(0.8)
+                                .frame(minWidth: 0, maxWidth: 350, minHeight: 0, maxHeight: .infinity)
+                            Spacer()
+                            Spacer()
+                            ZStack{
+                                Circle()
+                                    .stroke(Color(.lightGray), lineWidth: 15)
+                                    .frame(width: 130, height: 130, alignment: .center)
+                                Circle()
+                                    .trim(from: 0, to: Dprogress)
+                                    .stroke(Color(red: 160/255, green: 64/255, blue: 119/255), lineWidth: 15)
+                                    .frame(width: 130, height: 130, alignment: .center)
+                                    .rotationEffect(Angle(degrees: -90))
+                                    .overlay(
+                                        Text("\(Int(Dprogress*100))%")
+                                            .font(.system(size: 50))
+                                            .bold()
+                                            .foregroundColor(Color(red: 160/255, green: 64/255, blue: 119/255))
+                                    )
+                            }
+                        }
+                        VStack{
+                            Text("動漫類")
+                                .padding(.all, 15)
+                                .background(Color(red: 215/255, green: 214/255, blue: 241/255))
+                                .cornerRadius(30.0)
+                                .opacity(/*@START_MENU_TOKEN@*/0.8/*@END_MENU_TOKEN@*/)
+                                .frame(minWidth: 0, maxWidth: 350, minHeight: 0, maxHeight: .infinity)
+                            Spacer()
+                            Spacer()
+                            ZStack{
+                                Circle()
+                                    .stroke(Color(.lightGray), lineWidth: 15)
+                                    .frame(width: 130, height: 130, alignment: .center)
+                                Circle()
+                                    .trim(from: 0, to: Anprogress)
+                                    .stroke(Color(red: 160/255, green: 64/255, blue: 119/255), lineWidth: 15)
+                                    .frame(width: 130, height: 130, alignment: .center)
+                                    .rotationEffect(Angle(degrees: -90))
+                                    .overlay(
+                                        Text("\(Int(Anprogress*100))%")
+                                            .font(.system(size: 50))
+                                            .bold()
+                                            .foregroundColor(Color(red: 160/255, green: 64/255, blue: 119/255))
+                                    )
+                            }
+                        }
+                    }
+                }
+            }   
+        }
+    }
+}
+
+
+```
+</td>
+
   </tr>
 </table>
