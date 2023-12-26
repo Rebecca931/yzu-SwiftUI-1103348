@@ -1,5 +1,8 @@
-<h1>hw2</h1>
+<h1>hw4</h1>
 <table>
+  <tr>
+    <img width = "400" src ="https://raw.githubusercontent.com/Rebecca931/yzu-SwiftUI-1103348/main/hw2_GIF.gif">
+  </tr>
   <tr>
     <td>
       
@@ -965,8 +968,5 @@ struct typeDetialView: View {
 
 ```
    </td>
-  </tr>
-  <tr>
-    <img width = "400" src ="https://raw.githubusercontent.com/Rebecca931/yzu-SwiftUI-1103348/main/hw2_GIF.gif">
   </tr>
 </table>
