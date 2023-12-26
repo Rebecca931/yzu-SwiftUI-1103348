@@ -75,6 +75,7 @@ struct ContentView: View {
 
 
 ```
+<img width = "400" src ="https://raw.githubusercontent.com/Rebecca931/yzu-SwiftUI-1103348/main/hw2_GIF.gif">
     </td>
     <td>
       
@@ -107,8 +108,5 @@ struct WelcomeView: View {
 
 ```      
     </td>
-  </tr>
-  <tr>
-    <img width = "400" src ="https://raw.githubusercontent.com/Rebecca931/yzu-SwiftUI-1103348/main/hw2_GIF.gif">
   </tr>
 </table>
