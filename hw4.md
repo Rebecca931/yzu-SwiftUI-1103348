@@ -561,7 +561,7 @@ struct TaiwanDetialView: View {
 
 ```swift
 import SwiftUI
-//使用者可以透過點擊來隨機產生要看哪一部作品
+//使用者可以透過點擊圖片來隨機產生要看哪一部作品
 
 struct TermAndDescription: Identifiable{ //存放片單照片和名稱
     var id = UUID()
