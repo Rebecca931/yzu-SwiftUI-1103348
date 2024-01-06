@@ -78,7 +78,7 @@ struct ContentView: View {
     </tr>
 
     <tr>
-    <td>
+     <td>
       
 ```swift
 import SwiftUI
@@ -111,12 +111,11 @@ struct WelcomeView: View {
 
 <img width = "400"  src="https://raw.githubusercontent.com/Rebecca931/yzu-SwiftUI-1103348/main/IMG_0489.jpeg">
 
-   </td>
+    </td>
    </tr>
-
    
    <tr>
-   <td>
+    <td>
 
 ```swift
 import SwiftUI
@@ -231,11 +230,11 @@ struct DisneyDetialView: View {
 
 ```
   <img width = "400" src ="https://raw.githubusercontent.com/Rebecca931/yzu-SwiftUI-1103348/main/disney.gif">
-   </td> 
+    </td> 
    </tr>
 
-<tr>
-   <td>
+   <tr>
+    <td>
 
 ```swift
 import SwiftUI
