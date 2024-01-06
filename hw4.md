@@ -179,7 +179,7 @@ struct DisneyDetialView: View {
             VStack{
                 Image(thisDisney.image)
                     .resizable()
-                    .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
+                    .aspectRatio(contentMode: .fill)
                     .clipped()
                 Text(thisDisney.DisneyNameTW)
                     .font(.system(.title, design: .rounded))
@@ -192,7 +192,7 @@ struct DisneyDetialView: View {
                     .padding(.all, 25)
                     .background(Color(red: 215/255, green: 214/255, blue: 241/255))
                     .cornerRadius(30.0)
-                    .opacity(/*@START_MENU_TOKEN@*/0.8/*@END_MENU_TOKEN@*/)
+                    .opacity(0.8)
                     .frame(minWidth: 0, maxWidth: 350, minHeight: 0, maxHeight: .infinity)
                 Spacer()
                 //使用Link的方式, 將youtube預告片的網址放進去
@@ -543,12 +543,11 @@ struct TaiwanDetialView: View {
     }
 }
 ```
-  <img width = "400" src ="https://raw.githubusercontent.com/Rebecca931/yzu-SwiftUI-1103348/main/taiwan.gif">
-   </td>
+<img width = "400" src ="https://raw.githubusercontent.com/Rebecca931/yzu-SwiftUI-1103348/main/taiwan.gif">
+      </td>
    </tr>
-
-<tr>
-   <td>
+   <tr>
+      <td>
 
 ```swift
 import SwiftUI
@@ -617,11 +616,10 @@ struct CardView: View {
 
 ```
 <img width = "400" src ="https://raw.githubusercontent.com/Rebecca931/yzu-SwiftUI-1103348/main/card.gif">
-   </td>
+      </td>
    </tr>
-
-<tr>
-   <td>
+   <tr>
+      <td>
 
 ```swift
 import SwiftUI
@@ -679,12 +677,11 @@ struct SettingView: View {
 }
 
 ```
-  <img width = "400" src ="https://raw.githubusercontent.com/Rebecca931/yzu-SwiftUI-1103348/main/settings.gif">
-   </td>
+<img width = "400" src ="https://raw.githubusercontent.com/Rebecca931/yzu-SwiftUI-1103348/main/settings.gif">
+      </td>
    </tr>
-
-<tr>
-   <td>
+   <tr>
+      <td>
 
 ```swift
 import SwiftUI
@@ -788,7 +785,7 @@ struct typeDetialView: View {
                         .padding(.all, 20)
                         .background(Color(red: 215/255, green: 214/255, blue: 241/255))
                         .cornerRadius(30.0)
-                        .opacity(/*@START_MENU_TOKEN@*/0.8/*@END_MENU_TOKEN@*/)
+                        .opacity(0.8)
                         .frame(minWidth: 0, maxWidth: 350, minHeight: 0, maxHeight: .infinity)
                     Spacer()
                     Spacer()
@@ -814,7 +811,7 @@ struct typeDetialView: View {
                         .padding(.all, 20)
                         .background(Color(red: 215/255, green: 214/255, blue: 241/255))
                         .cornerRadius(30.0)
-                        .opacity(/*@START_MENU_TOKEN@*/0.8/*@END_MENU_TOKEN@*/)
+                        .opacity(0.8)
                         .frame(minWidth: 0, maxWidth: 350, minHeight: 0, maxHeight: .infinity)
                     Spacer() 
                     Spacer()
@@ -840,7 +837,7 @@ struct typeDetialView: View {
                         .padding(.all, 20)
                         .background(Color(red: 215/255, green: 214/255, blue: 241/255))
                         .cornerRadius(30.0)
-                        .opacity(/*@START_MENU_TOKEN@*/0.8/*@END_MENU_TOKEN@*/)
+                        .opacity(0.8)
                         .frame(minWidth: 0, maxWidth: 350, minHeight: 0, maxHeight: .infinity)
                     Spacer()
                     Spacer()
@@ -979,6 +976,6 @@ struct typeDetialView: View {
 
 ```
 <img width = "400" src ="https://raw.githubusercontent.com/Rebecca931/yzu-SwiftUI-1103348/main/progress.gif">
-   </td>
-</tr>
+      </td>
+   </tr>
 </table>
