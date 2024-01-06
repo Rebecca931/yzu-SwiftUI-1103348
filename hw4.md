@@ -1,7 +1,7 @@
 <h1>hw4</h1>
 <table>
    <tr>
-    <td>
+      <td>
       
 ```swift
 import SwiftUI
@@ -74,11 +74,10 @@ struct ContentView: View {
 }
 ```
 <img width = "400" src ="https://raw.githubusercontent.com/Rebecca931/yzu-SwiftUI-1103348/main/welcome.gif">
-    </td>
+      </td>
    </tr>
-
-    <tr>
-     <td>
+   <tr>
+      <td>
       
 ```swift
 import SwiftUI
@@ -110,12 +109,10 @@ struct WelcomeView: View {
 ```
 
 <img width = "400"  src="https://raw.githubusercontent.com/Rebecca931/yzu-SwiftUI-1103348/main/IMG_0489.jpeg">
-
-    </td>
+      </td>
    </tr>
-   
    <tr>
-    <td>
+      <td>
 
 ```swift
 import SwiftUI
@@ -229,12 +226,12 @@ struct DisneyDetialView: View {
 }
 
 ```
-  <img width = "400" src ="https://raw.githubusercontent.com/Rebecca931/yzu-SwiftUI-1103348/main/disney.gif">
-    </td> 
-   </tr>
 
+<img width = "400" src ="https://raw.githubusercontent.com/Rebecca931/yzu-SwiftUI-1103348/main/disney.gif">
+      </td>
+   </tr>
    <tr>
-    <td>
+      <td>
 
 ```swift
 import SwiftUI
@@ -380,11 +377,10 @@ struct AnimeDetialView: View {
 
 ```
 <img width = "400" src ="https://raw.githubusercontent.com/Rebecca931/yzu-SwiftUI-1103348/main/anime.gif">
-   </td>
+      </td>
    </tr>
-
-<tr>
-   <td>
+   <tr>
+      <td>
 
 ```swift
 import SwiftUI
