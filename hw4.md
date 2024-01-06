@@ -78,7 +78,7 @@ struct ContentView: View {
     </tr>
 
     <tr>
-   <td>
+    <td>
       
 ```swift
 import SwiftUI
@@ -115,7 +115,7 @@ struct WelcomeView: View {
    </tr>
 
    
-<tr>
+   <tr>
    <td>
 
 ```swift
