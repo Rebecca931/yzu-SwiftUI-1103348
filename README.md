@@ -11,7 +11,7 @@
 
 [bonus](https://github.com/Rebecca931/yzu-SwiftUI-1103348/blob/main/bonus.md)
 
-HW4補充說明：除了welcomeView下方式圖片外,每組頁面的程式碼的下方都會有那個頁面的gif,
-整個APP粗略畫面在contentView下方。 因為程式碼和圖片會在畫面質中的關係,所以要再麻煩老師在觀看時,往下或往右滑動觀看,謝謝！
+HW4補充說明：除了welcomeView下方是圖片外,每組頁面的程式碼的下方都會有那個頁面的gif,
+整個APP粗略畫面在contentView下方。 因為程式碼和圖片會在table置中的關係,所以要再麻煩老師在觀看時,往下或往右滑動觀看,謝謝！
 
 [hw4](https://github.com/Rebecca931/yzu-SwiftUI-1103348/blob/main/hw4.md)
