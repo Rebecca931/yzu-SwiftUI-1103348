@@ -1,6 +1,6 @@
 <h1>hw4</h1>
 <table>
-  <tr>
+
     <td>
       
 ```swift
@@ -73,7 +73,7 @@ struct ContentView: View {
     }
 }
 ```
-//<img width = "400" src ="https://raw.githubusercontent.com/Rebecca931/yzu-SwiftUI-1103348/main/welcome.gif">
+<img width = "400" src ="https://raw.githubusercontent.com/Rebecca931/yzu-SwiftUI-1103348/main/welcome.gif">
    </td>
     
    <td>
@@ -970,5 +970,5 @@ struct typeDetialView: View {
 ```
 <img width = "400" src ="https://raw.githubusercontent.com/Rebecca931/yzu-SwiftUI-1103348/main/progress.gif">
    </td>
-  </tr>
+
 </table>
