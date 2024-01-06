@@ -64,9 +64,11 @@ struct ContentView: View {
         }.padding(.top, 20)
             .tint(Color(red: 160/255, green: 64/255, blue: 119/255)) //被點擊的TabItem顏色
             .onAppear(perform: {
-                UITabBar.appearance().backgroundColor = UIColor(Color(red: 231/255, green: 209/255, blue: 224/255)) //TabView背景顏色
-                
-                UITabBar.appearance().unselectedItemTintColor = UIColor(Color(red: 52/255, green: 167/255, blue: 199/255))//沒被點擊的TabItem顏色
+               //TabView背景顏色
+                UITabBar.appearance().backgroundColor = UIColor(Color(red: 231/255, green: 209/255, blue: 224/255)) 
+
+               //沒被點擊的TabItem顏色
+                UITabBar.appearance().unselectedItemTintColor = UIColor(Color(red: 52/255, green: 167/255, blue: 199/255))
             })
             .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
             .background(Color(red: 231/255, green: 209/255, blue: 224/255))//APP背景顏色
