@@ -76,6 +76,8 @@ struct ContentView: View {
 <img width = "400" src ="https://raw.githubusercontent.com/Rebecca931/yzu-SwiftUI-1103348/main/welcome.gif">
       </td>
    </tr>
+</table>
+<table>
    <tr>
       <td>
       
@@ -383,6 +385,8 @@ struct AnimeDetialView: View {
 <img width = "400" src ="https://raw.githubusercontent.com/Rebecca931/yzu-SwiftUI-1103348/main/anime.gif">
       </td>
    </tr>
+</table>
+<table>
    <tr>
       <td>
 
@@ -550,6 +554,8 @@ struct TaiwanDetialView: View {
 <img width = "400" src ="https://raw.githubusercontent.com/Rebecca931/yzu-SwiftUI-1103348/main/taiwan.gif">
       </td>
    </tr>
+</table>
+<table>
    <tr>
       <td>
 
@@ -622,6 +628,8 @@ struct CardView: View {
 <img width = "400" src ="https://raw.githubusercontent.com/Rebecca931/yzu-SwiftUI-1103348/main/card.gif">
       </td>
    </tr>
+</table>
+<table>
    <tr>
       <td>
 
@@ -684,6 +692,8 @@ struct SettingView: View {
 <img width = "400" src ="https://raw.githubusercontent.com/Rebecca931/yzu-SwiftUI-1103348/main/settings.gif">
       </td>
    </tr>
+</table>
+<table>
    <tr>
       <td>
 
