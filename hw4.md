@@ -76,8 +76,10 @@ struct ContentView: View {
 <img width = "400" src ="https://raw.githubusercontent.com/Rebecca931/yzu-SwiftUI-1103348/main/welcome.gif">
    </td>
     </tr>
+
+    <tr>
    <td>
-      <tr>
+      
 ```swift
 import SwiftUI
 //首頁的畫面
